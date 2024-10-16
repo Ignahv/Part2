@@ -3,6 +3,12 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
+
 let notes = [
     {
         id: 1,
@@ -61,7 +67,3 @@ app.delete('/api/notes/:id', (request, response) => {
     response.status(204).end()
 })
 
-const PORT = process.env.PORT || 3003
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
